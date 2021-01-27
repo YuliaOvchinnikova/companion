@@ -68,9 +68,7 @@
 				{
 					"from": "./node_modules/sharp/vendor/8.10.5/lib",
 					"to": ".",
-					"filter": [
-						"libvips*.so.*"
-					]
+					"filter": ["libvips*.so.*"]
 				}
 			]
 		},
@@ -102,6 +100,7 @@
 		"lindist": "yarn dist:prepare && electron-builder --publish=never --linux",
 		"rpidist": "yarn dist:prepare && electron-builder --armv7l --linux",
 		"test": "mocha",
+		"postinstall": "./tools/build_writefile.sh && yarn dist:js",
 		"headless": "nodemon headless.js",
 		"dev-headless": "./tools/build_writefile.sh && DEVELOPER=1 nodemon headless.js"
 	},
